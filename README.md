@@ -1,5 +1,6 @@
 1. If I was to rebuild this project, the first thing I'd do differently is split up the operation button listeners, this would remove lots of filtering logic and work arounds, along with making it far more readable. This would also make implementing keyboard support infinitely easier and more efficient. If I was to implement keyboard support I would first rewrite the program in a more modular fashion. 
 
+2. GitHub pages '404' attempted fix.
 2. Fixed a bug with 'clear' functionality.
 3. Fixed dividing 0 by something bug.
 4. Styling upgrade.
