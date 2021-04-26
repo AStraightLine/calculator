@@ -86,7 +86,6 @@ function operate(a, operator, b) {
         let resultArray = resultString.split('');
         while (resultArray.length > 11) {
             if (resultArray[(resultArray.length - 1)] >= 5) {
-                console.log(resultArray[(resultArray.length - 1)])
                 resultArray[(resultArray.length - 1)] = Math.round(resultArray[(resultArray.length - 1)]);
                 resultArray.pop();
             } else {
@@ -168,7 +167,7 @@ operatorButtons.forEach((button) => {
         } else if (button.value == '=') {
             if (button.value == '=' && lastOperator == '' && displayValue == 0 && operandA == 0 && operandB == 0) {
                 return;
-            } else {
+            }  else {
                 subDisplay.textContent = operandA + ' ' + operator + ' ' + displayValue + ' ' + '=';
                 operandB = displayValue;
                 result = operate(operandA, operator, operandB);

@@ -16,9 +16,10 @@ body {
 #calcContainer {
     width: 450px;
     height: 550px;
-    background-color: #575757;
+    background-color: #77C7DE;
     border-radius: 5px;
     border: 2px solid black;
+    filter: drop-shadow(0.35em 0.4em 0.35em black);
 }
 
 #calcHeader {
@@ -27,6 +28,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(0.1em 0.1em 0.15em black);
 }
 
 #calcSubDisplay {
@@ -78,8 +80,28 @@ body {
     border-radius: 4px;
     margin-top: 6px;
     font-size: 1.5em;
+    background-color: white;
+    filter: drop-shadow(0.15em 0.15em 0.1em black);
 }
 
 .leftButton {
     margin-left: 3px;
+}
+
+.operatorButton {
+    background-color: #c9e9f2;
+}
+
+#decimalPointButton {
+    background-color: white;
+}
+
+.calcButton:hover {
+    background-color: #919191;
+    color: white;
+}
+
+#decimalPointButton:hover {
+    background-color: #919191;
+    color: white;
 }

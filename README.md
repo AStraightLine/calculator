@@ -1,3 +1,5 @@
+18. If I was to rebuild this project, the first thing I'd do differently is split up the operation button listeners, this would remove lots of filtering logic and work arounds, along with making it far more readable. This would also make implementing keyboard support infinitely easier and more efficient. If I was to implement keyboard support I would first rewrite the program in a more modular fashion. 
+
 1. Project setup
 2. Basic calculation functions
 3. Basic styling
@@ -13,7 +15,5 @@
 13. Implemented block to entering multiple floating points.
 14. Implemented C button for removing last digit entered if last entry was a digit, not operator. 
 15. Implemented 'subDisplay' to help user keep track of their inputs.
-
-16. If I was to rebuild this project, the first thing I'd do differently is split up the operation button listeners, this would remove lots of filtering logic and work arounds, along with making it far more readable. This would also make implementing keyboard support infinitely easier and more efficient. If I was to implement keyboard support I would first rewrite the program in a more modular fashion. 
-
-17. TODO: Add sub-display to show user their calculation. 
+16. Styling upgrade.
+17. Fixed diving 0 by something bug.
