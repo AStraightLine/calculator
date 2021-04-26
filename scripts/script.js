@@ -45,7 +45,7 @@ function operate(a, operator, b) {
     a = parseFloat(a);
     b = parseFloat(b);
 
-    let result = 0;
+    let result = '';
 
     switch(operator) {
         case '+': 
@@ -72,6 +72,7 @@ function operate(a, operator, b) {
             result = unaryOp(a);
             result = result.toString();
             return result;
+
         case ".": 
             result = displayValue += '.';
             result = result.toString();
@@ -86,7 +87,10 @@ const clearButton = document.querySelector('#clearButton');
 
 let displayValue = 0;
 let operator = '';
+let lastOperator = '';
 let operandA = 0;
+let operandB = 0;
+let result = 0;
 
 display.textContent = displayValue;
 
@@ -111,11 +115,40 @@ operatorButtons.forEach((button) => {
             displayValue = operate(displayValue, button.value);
             display.textContent = displayValue;
         } else if (button.value == '=') {
-            displayValue = operate(operandA, operator, displayValue);
-            display.textContent = displayValue;
-        } else {
-            operandA = displayValue;
+            operandB = displayValue;
+            result = operate(operandA, operator, operandB);
+            display.textContent = result;
+            operandB = result;
             displayValue = 0;
+            lastOperator = '=';
+        } else {
+            if (lastOperator === '') {
+                if (operator === '*' || operator === '/') {
+                    lastOperator = operator;
+                    operandA = displayValue;
+                    operandB = displayValue;
+                    displayValue = 0;
+                } else {
+                    lastOperator = operator;
+                    operandB = displayValue;
+                    result = operate(operandB, lastOperator, operandA);
+                    display.textContent = result;
+                    operandA = result;
+                    displayValue = 0;
+                }
+            } else if (lastOperator === '=') {
+                operandA = result;
+                lastOperator = operator;
+                operandB = displayValue;
+                displayValue = 0;
+            } else {
+                operandB = displayValue;
+                result = operate(operandA, lastOperator, operandB);
+                display.textContent = result;
+                lastOperator = operator;
+                operandA = result;
+                displayValue = 0;
+            }
         }
     });
 });
@@ -123,6 +156,9 @@ operatorButtons.forEach((button) => {
 clearButton.addEventListener('click', () => {
     displayValue = 0;
     operator = '';
+    lastOperator = '';
     operandA = 0;
+    operandB = 0;
+    result = 0;
     display.textContent = displayValue;
 });
