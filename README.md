@@ -16,4 +16,4 @@
 14. Implemented C button for removing last digit entered if last entry was a digit, not operator. 
 15. Implemented 'subDisplay' to help user keep track of their inputs.
 16. Styling upgrade.
-17. Fixed diving 0 by something bug.
+17. Fixed dividing 0 by something bug.

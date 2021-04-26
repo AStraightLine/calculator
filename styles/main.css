@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;#
+    align-items: center;
 }
 
 #calcContainer {
@@ -92,7 +92,7 @@ body {
     background-color: #c9e9f2;
 }
 
-#decimalPointButton {
+#floatButton {
     background-color: white;
 }
 
@@ -101,7 +101,7 @@ body {
     color: white;
 }
 
-#decimalPointButton:hover {
+#floatButton:hover {
     background-color: #919191;
     color: white;
 }

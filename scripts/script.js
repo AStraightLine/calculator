@@ -141,6 +141,17 @@ numberButtons.forEach((button) => {
     });
 });
 
+clearButton.addEventListener('click', () => {
+    displayValue = 0;
+    operator = '';
+    lastOperator = '';
+    operandA = 0;
+    operandB = 0;
+    result = 0;
+    subDisplay.textContent = '';
+    display.textContent = displayValue;
+});
+
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
 
@@ -211,15 +222,4 @@ operatorButtons.forEach((button) => {
             }
         }
     });
-});
-
-clearButton.addEventListener('click', () => {
-    displayValue = 0;
-    operator = '';
-    lastOperator = '';
-    operandA = 0;
-    operandB = 0;
-    result = 0;
-    subDisplay.textContent = '';
-    display.textContent = displayValue;
 });
