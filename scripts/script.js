@@ -82,7 +82,6 @@ function operate(a, operator, b) {
     if ((((parseInt(result)).toString()).length) >= 11) {
         return "NaN";
     } else if (result.length >= 11) {
-        console.log(result);
         let resultString = result.toString();
         let resultArray = resultString.split('');
         while (resultArray.length > 11) {
@@ -137,15 +136,22 @@ operatorButtons.forEach((button) => {
             operator = button.value;
         }
         if (button.value == '%' || button.value == 'unary' || button.value == '.') {
+            if (displayValue.includes('.')) {
+                return;
+            } 
             displayValue = operate(displayValue, button.value);
             display.textContent = displayValue;
         } else if (button.value == '=') {
-            operandB = displayValue;
+            if (button.value == '=' && lastOperator == '' && displayValue == 0 && operandA == 0 && operandB == 0) {
+                return;
+            } else {
+                operandB = displayValue;
             result = operate(operandA, operator, operandB);
             display.textContent = result;
             operandB = result;
             displayValue = 0;
             lastOperator = '=';
+            }
         } else {
             if (lastOperator === '') {
                 if (operator === '*' || operator === '/') {

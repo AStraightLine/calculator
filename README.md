@@ -9,6 +9,8 @@
 9. Fixed even nastier chain operations bug when chaining after an equals.
 10. Fixed multiplication / division as first operation bug. 
 11. Implemented digit amount limitation and corresponding rounding. 
+12. Worked around the pressing '=' before any other input bug.
+13. Implemented block to entering multiple floating points.
 
 11. TODO: Add sub-display to show user their calculation. 
             if already decimal no more float point
