@@ -100,6 +100,17 @@ function operate(a, operator, b) {
     } 
 }
 
+function backspace(displayValue) {
+    let displayArray = displayValue.split('');
+    if (displayArray.length > 1) {
+        displayArray.pop();
+    } else {
+        displayArray[0] = 0;
+    }
+    displayValue = displayArray.join('');
+    return displayValue;
+}
+
 const display = document.querySelector('#calcDisplay');
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
@@ -132,9 +143,21 @@ numberButtons.forEach((button) => {
 
 operatorButtons.forEach((button) => {
     button.addEventListener('click', () => {
+
+        if (button.value === 'backspace') {
+            if (displayValue == 0) {
+                return;
+            } else {
+                displayValue = backspace(displayValue);
+                display.textContent = displayValue;
+                return;
+            }
+        }
+
         if(button.value !== '=' && button.value !== '%' && button.value !== 'unary' && button.value !== '.') {
             operator = button.value;
         }
+
         if (button.value == '%' || button.value == 'unary' || button.value == '.') {
             if (displayValue.includes('.')) {
                 return;
