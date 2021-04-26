@@ -51,33 +51,54 @@ function operate(a, operator, b) {
         case '+': 
             result = addition(a, b);
             result = result.toString();
-            return result;
+            break;
         case '-':
             result = subtraction(a, b);
             result = result.toString();
-            return result;
+            break;
         case '*':
             result = multiplication(a, b);
             result = result.toString();
-            return result;
+            break;
         case '/': 
             result = division(a, b);
             result = result.toString();
-            return result;
+            break;
         case '%':
             result = percentOf(a);
             result = result.toString();
-            return result;
+            break;
         case "unary":
             result = unaryOp(a);
             result = result.toString();
-            return result;
+            break;
 
         case ".": 
             result = displayValue += '.';
             result = result.toString();
-            return result;
+            break;
     }
+
+    if ((((parseInt(result)).toString()).length) >= 11) {
+        return "NaN";
+    } else if (result.length >= 11) {
+        console.log(result);
+        let resultString = result.toString();
+        let resultArray = resultString.split('');
+        while (resultArray.length > 11) {
+            if (resultArray[(resultArray.length - 1)] >= 5) {
+                console.log(resultArray[(resultArray.length - 1)])
+                resultArray[(resultArray.length - 1)] = Math.round(resultArray[(resultArray.length - 1)]);
+                resultArray.pop();
+            } else {
+                resultArray.pop();
+            }
+        }
+        result = resultArray.join('');
+        return result;
+    } else {
+        return result;
+    } 
 }
 
 const display = document.querySelector('#calcDisplay');
@@ -96,12 +117,16 @@ display.textContent = displayValue;
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (displayValue == '0') {
-            displayValue = button.value;
-            display.textContent = displayValue;
+        if ((displayValue.length) == 11) {
+            return;
         } else {
-            displayValue += button.value;
-            display.textContent = displayValue;
+            if (displayValue == '0') {
+                displayValue = button.value;
+                display.textContent = displayValue;
+            } else {
+                displayValue += button.value;
+                display.textContent = displayValue;
+            }
         }
     });
 });

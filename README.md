@@ -8,7 +8,7 @@
 8. Fixed nasty chain operations bug.
 9. Fixed even nastier chain operations bug when chaining after an equals.
 10. Fixed multiplication / division as first operation bug. 
+11. Implemented digit amount limitation and corresponding rounding. 
 
 11. TODO: Add sub-display to show user their calculation. 
             if already decimal no more float point
-            limit number of decimal places / total display length
