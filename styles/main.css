@@ -24,21 +24,38 @@ body {
 #calcHeader {
     height: 125px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+}
+
+#calcSubDisplay {
+    width: 405px;
+    height: 25px;
+    background-color: white;
+    line-height: 25px;
+    font-size: 1.25em;
+    text-align: right;
+    padding-right: 5px;
+    border-top: 3px solid #1f1f1f;
+    border-left: 3px solid #1f1f1f;
+    border-right: 3px solid #1f1f1f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 15px;
 }
 
 #calcDisplay {
     width: 405px;
-    height: 95px;
+    height: 75px;
     background-color: white;
-    border: 3px solid #1f1f1f;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    line-height: 95px;
+    border-bottom: 3px solid #1f1f1f;
+    border-left: 3px solid #1f1f1f;
+    border-right: 3px solid #1f1f1f;
+    line-height: 75px;
     font-size: 5em;
     text-align: right;
-    padding: 5px;
+    padding-right: 5px;
 }
 
 #calcBodyContainer {

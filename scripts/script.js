@@ -112,6 +112,7 @@ function backspace(displayValue) {
 }
 
 const display = document.querySelector('#calcDisplay');
+const subDisplay = document.querySelector('#calcSubDisplay');
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
 const clearButton = document.querySelector('#clearButton');
@@ -168,12 +169,13 @@ operatorButtons.forEach((button) => {
             if (button.value == '=' && lastOperator == '' && displayValue == 0 && operandA == 0 && operandB == 0) {
                 return;
             } else {
+                subDisplay.textContent = operandA + ' ' + operator + ' ' + displayValue + ' ' + '=';
                 operandB = displayValue;
-            result = operate(operandA, operator, operandB);
-            display.textContent = result;
-            operandB = result;
-            displayValue = 0;
-            lastOperator = '=';
+                result = operate(operandA, operator, operandB);
+                display.textContent = result;
+                operandB = result;
+                displayValue = 0;
+                lastOperator = '=';
             }
         } else {
             if (lastOperator === '') {
@@ -182,6 +184,7 @@ operatorButtons.forEach((button) => {
                     operandA = displayValue;
                     operandB = displayValue;
                     displayValue = 0;
+                    subDisplay.textContent = operandB + ' ' + operator;
                 } else {
                     lastOperator = operator;
                     operandB = displayValue;
@@ -189,19 +192,23 @@ operatorButtons.forEach((button) => {
                     display.textContent = result;
                     operandA = result;
                     displayValue = 0;
+                    subDisplay.textContent = operandB + ' ' + operator;
                 }
             } else if (lastOperator === '=') {
                 operandA = result;
                 lastOperator = operator;
                 operandB = displayValue;
                 displayValue = 0;
+                subDisplay.textContent = operandA + ' ' + operator;
             } else {
                 operandB = displayValue;
+                subDisplay.textContent = operandB;
                 result = operate(operandA, lastOperator, operandB);
                 display.textContent = result;
                 lastOperator = operator;
                 operandA = result;
                 displayValue = 0;
+                subDisplay.textContent = result + ' ' + operator;
             }
         }
     });
@@ -214,5 +221,6 @@ clearButton.addEventListener('click', () => {
     operandA = 0;
     operandB = 0;
     result = 0;
+    subDisplay.textContent = '';
     display.textContent = displayValue;
 });
