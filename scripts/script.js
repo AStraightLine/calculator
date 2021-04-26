@@ -42,34 +42,57 @@ function unaryOp(x) {
 }
 
 function operate(a, operator, b) {
+    a = parseFloat(a);
+    b = parseFloat(b);
+
+    let result = 0;
+
     switch(operator) {
         case '+': 
-            return addition(a, b);
+            result = addition(a, b);
+            result = result.toString();
+            return result;
         case '-':
-            return subtraction(a, b);
+            result = subtraction(a, b);
+            result = result.toString();
+            return result;
         case '*':
-            return multiplication(a, b);
+            result = multiplication(a, b);
+            result = result.toString();
+            return result;
         case '/': 
-            return division(a, b);
+            result = division(a, b);
+            result = result.toString();
+            return result;
         case '%':
-            return percentOf(a);
+            result = percentOf(a);
+            result = result.toString();
+            return result;
         case "unary":
-            return unaryOp(a);
+            result = unaryOp(a);
+            result = result.toString();
+            return result;
+        case ".": 
+            result = displayValue += '.';
+            result = result.toString();
+            return result;
     }
 }
 
 const display = document.querySelector('#calcDisplay');
 const numberButtons = document.querySelectorAll('.numberButton');
-
+const operatorButtons = document.querySelectorAll('.operatorButton');
 const clearButton = document.querySelector('#clearButton');
 
 let displayValue = 0;
+let operator = '';
+let operandA = 0;
 
 display.textContent = displayValue;
 
 numberButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (displayValue == 0) {
+        if (displayValue == '0') {
             displayValue = button.value;
             display.textContent = displayValue;
         } else {
@@ -79,7 +102,27 @@ numberButtons.forEach((button) => {
     });
 });
 
+operatorButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if(button.value !== '=' && button.value !== '%' && button.value !== 'unary' && button.value !== '.') {
+            operator = button.value;
+        }
+        if (button.value == '%' || button.value == 'unary' || button.value == '.') {
+            displayValue = operate(displayValue, button.value);
+            display.textContent = displayValue;
+        } else if (button.value == '=') {
+            displayValue = operate(operandA, operator, displayValue);
+            display.textContent = displayValue;
+        } else {
+            operandA = displayValue;
+            displayValue = 0;
+        }
+    });
+});
+
 clearButton.addEventListener('click', () => {
     displayValue = 0;
+    operator = '';
+    operandA = 0;
     display.textContent = displayValue;
 });
