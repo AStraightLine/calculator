@@ -58,3 +58,28 @@ function operate(a, operator, b) {
     }
 }
 
+const display = document.querySelector('#calcDisplay');
+const numberButtons = document.querySelectorAll('.numberButton');
+
+const clearButton = document.querySelector('#clearButton');
+
+let displayValue = 0;
+
+display.textContent = displayValue;
+
+numberButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (displayValue == 0) {
+            displayValue = button.value;
+            display.textContent = displayValue;
+        } else {
+            displayValue += button.value;
+            display.textContent = displayValue;
+        }
+    });
+});
+
+clearButton.addEventListener('click', () => {
+    displayValue = 0;
+    display.textContent = displayValue;
+});
