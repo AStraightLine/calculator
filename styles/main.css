@@ -92,6 +92,10 @@ body {
     background-color: #c9e9f2;
 }
 
+#clearButton {
+    background-color: #c9e9f2;
+}
+
 #floatButton {
     background-color: white;
 }
@@ -102,6 +106,11 @@ body {
 }
 
 #floatButton:hover {
+    background-color: #919191;
+    color: white;
+}
+
+#clearButton:hover {
     background-color: #919191;
     color: white;
 }
