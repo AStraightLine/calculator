@@ -53,5 +53,8 @@ function operate(a, operator, b) {
             return division(a, b);
         case '%':
             return percentOf(a);
+        case "unary":
+            return unaryOp(a);
     }
 }
+

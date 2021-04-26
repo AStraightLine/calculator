@@ -2,3 +2,72 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    height: 100vh;
+    font-family: monospace;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;#
+}
+
+#calcContainer {
+    width: 450px;
+    height: 550px;
+    background-color: #575757;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+#calcHeader {
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#calcDisplay {
+    width: 405px;
+    height: 95px;
+    background-color: white;
+    border: 3px solid #1f1f1f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    line-height: 95px;
+    font-size: 5em;
+    text-align: right;
+    padding: 5px;
+}
+
+#calcBodyContainer {
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calcBody {
+    width: 424px;
+    height: 395px;
+    margin-top: 5px;
+}
+
+.calcButton {
+    width: 100px;
+    height: 75px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 6px;
+    font-size: 1.5em;
+
+}
+
+.leftButton {
+    margin-left: 2px;
+}
+
+#zeroButton {
+    width: 207px;
+}
